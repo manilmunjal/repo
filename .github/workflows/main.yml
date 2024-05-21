@@ -75,16 +75,16 @@ jobs:
           git commit -m "Initial commit with binaries moved to JFrog"
           
           # Add GitHub repository as remote
-          git remote add github_repo https://github.com/manilmunjal/repo.git
+          git remote add repo https://github.com/manilmunjal/repo.git
           
           # Pull changes from the remote repository to integrate them
-          git fetch github_repo
-          git pull --rebase github_repo master
+          git fetch repo
+          git pull --rebase repo main
 
           # Push to GitHub
           git config --global credential.helper store
           git config --global user.email "manilmunjal@gmail.com"
           git config --global user.name "manilmunjal"
           echo "https://manilmunjal:${{secrets.PAT}}@github.com/manilmunjal/repo.git" > ~/.git-credentials
-          git push --all github_repo
-          git push --tags github_repo
+          git push --all repo
+          git push --tags repo
